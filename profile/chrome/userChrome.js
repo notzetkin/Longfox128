@@ -1,0 +1,10 @@
+// userChrome.js
+userChrome.import("additional_top_toolbars.uc.js", "UChrm");
+userChrome.import("button.uc.js", "UChrm");
+userChrome.import("space_and_separator_restorer.uc.js", "UChrm");
+userChrome.import("status_bar.uc.js", "UChrm");
+userChrome.import("move_bars.uc.js", "UChrm");
+userChrome.import("activity_throbber.uc.js", "UChrm");
+userChrome.import("change-toolbar-icon-values.uc.js", "UChrm");
+userChrome.import("favicon_in_urlbar.uc.js", "UChrm");
+userChrome.import("extensions_button.uc.js", "UChrm");
