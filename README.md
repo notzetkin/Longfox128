@@ -22,7 +22,7 @@ well supports 128 obvs
 - doesn't have true round corners 
 - doesnt have native scrollbars
 - small padding issues in menus with favicons and address bar
-  r3dfox:
+r3dfox:
 - works just fine somehow
 theme compatability between the two is pretty much 99.8%  
 
