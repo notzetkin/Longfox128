@@ -24,6 +24,7 @@ well supports 128 obvs
 - small padding issues in menus with favicons and address bar
 ### r3dfox:
 - works just fine somehow
+
 theme compatability between the two is pretty much 99.8%  
 
 # THEME IS WORK IN PROGRESS
