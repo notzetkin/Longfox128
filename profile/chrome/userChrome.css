@@ -1158,7 +1158,7 @@ menupopup {
   --panel-padding: 4px !important;
   margin: -1px !important;
 }
-menupopup, panel {
+menupopup {
   @media (-moz-platform: linux) or (-moz-platform: windows) {
     & {
       --panel-shadow-margin: -4px !important;
