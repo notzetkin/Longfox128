@@ -1154,6 +1154,10 @@ padding: 0px !important;
 	--panel-color: rgb(230,243,255) !important;
 }
 
+#PersonalToolbar {
+visibility: collapse !important;
+}
+
 menupopup {
   --panel-padding: 4px !important;
   margin: -1px !important;
