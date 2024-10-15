@@ -30,4 +30,13 @@ well supports 128 obvs
 
 theme compatability between the two is pretty much 99.8%  
 
+## to-do's
+1. animate activiry throbber
+2. custom scrollbars for 128esr
+3. make menu panels look like plex demo ones
+4. all vector icons
+5. try to restore active tab border
+6. style sidebars settings and new tab page to be more plexy
+7. get throbber label to show tab name somehow
+
 # THEME IS WORK IN PROGRESS
