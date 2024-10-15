@@ -30,6 +30,16 @@
   }
 }
 
+:root[inFullscreen] body{
+	margin-top:-1px !important;
+	border-top: 0px !important;
+	border-radius: 0px !important;
+}
+
+:root[inFullscreen] #browser-bottombox {
+	height: 0px !important;
+}
+
 @media (-moz-platform: windows-win7), (-moz-platform: windows-win8) {
   @media not (-moz-windows-classic) {
     @media (-moz-windows-compositor) {
