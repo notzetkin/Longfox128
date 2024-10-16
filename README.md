@@ -1,4 +1,4 @@
-# Longfox128
+# Longfox128: The Search For More Plex
 Longhorn Plex demo styled browser theme for r3dfox and FF128esr
 
 ## differences from another repo
