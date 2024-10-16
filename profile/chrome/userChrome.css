@@ -230,6 +230,7 @@ margin-right: -1px !important}
 }
 
 .tabbrowser-tab[selected="true"] {
+	margin-top:2px !important;
 	max-height: 25px !important;
 	z-index:2!important;
 }
