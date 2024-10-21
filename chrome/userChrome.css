@@ -1330,12 +1330,14 @@ menuitem[checked="true"] > .menu-iconic-left {
   fill-opacity: var(--menu-icon-opacity);
   list-style-image: url("check.svg") !important;
 }
-menuitem:not([type="checkbox"], [checked="true"], [type="radio"]) .menu-iconic-icon {
+ .menu-iconic-icon {
   width: 16px !important;
   height: 16px !important;
 }
 
-.menu-iconic-icon {
+menuitem[type="checkbox"] .menu-iconic-icon,
+menuitem[checked="true"] .menu-iconic-icon,
+menuitem[type="radio"].menu-iconic-icon {
   width: auto !important;
   height: auto !important;
 }
