@@ -1,0 +1,12 @@
+/* include/merge this with userchrome.css */
+
+#unified-extensions-button {
+  width: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+  list-style-image: none !important;
+}
+
+#extensions-button > .toolbarbutton-icon {
+  list-style-image: url("ext.png") !important;
+}
