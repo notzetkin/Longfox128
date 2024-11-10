@@ -30,7 +30,7 @@ well supports 128 obvs
 4. style sidebars settings and new tab page to be more plexy
 
 # THANKS TO:
-![AngelBruni](https://github.com/angelbruni) and ![Dominic Hayes](https://github.com/dominichayesferen) for muliicolor support from ![Geckium](https://github.com/angelbruni/Geckium)
+![AngelBruni](https://github.com/angelbruni) and ![Dominic Hayes](https://github.com/dominichayesferen) for mulicolor support from ![Geckium](https://github.com/angelbruni/Geckium)
 
 ![Aris](https://github.com/Aris-t2) for ![firefox customisation scripts](https://github.com/Aris-t2/CustomJSforFx)
 
