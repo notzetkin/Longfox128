@@ -1,14 +1,13 @@
-// config.js 
-
+// skip 1st line
 try {
-  Cu.importGlobalProperties(['PathUtils']);
-
-  if (!Services.appinfo.inSafeMode) {
-    Services.scriptloader.loadSubScript(
-      PathUtils.toFileURI(PathUtils.join(PathUtils.profileDir,
-      'chrome', 'userChrome', 'userChromeJS.js')), this, 'UTF-8'
-    );
+    
+  let cmanifest = Cc['@mozilla.org/file/directory_service;1'].getService(Ci.nsIProperties).get('UChrm', Ci.nsIFile);
+  cmanifest.append('utils');
+  cmanifest.append('chrome.manifest');
+  
+  if(cmanifest.exists()){
+    Components.manager.QueryInterface(Ci.nsIComponentRegistrar).autoRegister(cmanifest);
+    ChromeUtils.importESModule('chrome://userchromejs/content/boot.sys.mjs');
   }
-} catch(e) {
-	Components.utils.reportError(e);
-};
+
+} catch(ex) {};
