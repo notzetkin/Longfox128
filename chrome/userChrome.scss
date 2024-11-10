@@ -1,0 +1,1424 @@
+@import url("toolbar-label-under-icon.css");
+@import url("ext.css");
+
+:root {
+	--button-hover-bgcolor: transparent !important;
+	--button-active-bgcolor: transparent !important;
+	--urlbar-toolbar-height: 24.00px !important;
+	--urlbar-container-padding: 0px !important;
+	--autocomplete-popup-separator-color: transparent !important;
+	--bookmark-block-padding: 4px !important;
+	--you-h: var(--accent-h);
+	--you-s: var(--accent-s);
+	--you-l: var(--accent-l);
+			--default-titlebar-active: linear-gradient(
+				90deg,
+				hsl(var(--you-h), var(--you-s), var(--you-l)) 0%,
+				
+        hsl(calc(var(--you-h) - 3), calc(var(--you-s) + 28%), calc(var(--you-l) + 14%)) 50%,
+        
+				hsl(var(--you-h), var(--you-s), var(--you-l)) 100%
+			);
+			--default-titlebar-inactive: linear-gradient(
+				to left,
+				hsl(var(--you-h), calc(var(--you-s) - 10%), calc(var(--you-l) - 11%)),
+				hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 5%), var(--you-l)),
+				hsl(var(--you-h), calc(var(--you-s) - 10%), calc(var(--you-l) - 11%))
+			);
+			--default-titlebar-color: hsl(var(--you-h), var(--you-s), var(--you-l));
+}
+
+@media (-moz-platform: windows-win7),
+         (-moz-platform: windows-win8) {
+
+    #browser {
+      appearance: auto;
+      -moz-default-appearance: -moz-win-exclude-glass;
+    }
+  }
+
+:root[tabsintitlebar][sizemode="normal"] #titlebar,
+:root[tabsintitlebar][sizemode="maximized"] #titlebar {
+  appearance: unset !important;
+  -moz-default-appearance: -moz-window-titlebar;
+}
+
+:root[tabsintitlebar][sizemode="maximized"] #navigator-toolbox,
+:root[tabsintitlebar][sizemode="maximized"] #browser-bottombox,
+:root[tabsintitlebar][sizemode="maximized"] body {
+	border-radius: 0px !important;
+}
+
+@media (-moz-windows-compositor) {
+  @media (-moz-platform: windows-win7), (-moz-platform: windows-win8) {
+    .titlebar-button {
+      display: unset !important;
+    }
+  }
+}
+
+:root[inFullscreen] body{
+	margin-top:-1px !important;
+	border-top: 0px !important;
+	border-radius: 0px !important;
+}
+
+:root[inFullscreen] #browser-bottombox {
+	height: 0px !important;
+}
+
+@media (-moz-platform: windows-win7), (-moz-platform: windows-win8) {
+  @media not (-moz-windows-classic) {
+    @media (-moz-windows-compositor) {
+      :root[sizemode="maximized"] .titlebar-buttonbox {
+        appearance: unset !important;
+        -moz-default-appearance: -moz-window-button-box-maximized;
+      }
+    }
+  }
+}
+
+@media (-moz-platform: windows-win7), (-moz-platform: windows-win8) {
+  @media not (-moz-windows-classic) {
+    :root[sizemode="normal"] .titlebar-buttonbox {
+      appearance: unset !important;
+      -moz-default-appearance: -moz-window-button-box;
+    }
+  }
+}
+
+:root:not([sizemode="maximized"], [sizemode="fullscreen"]) .titlebar-restore, :root:is([sizemode="maximized"], [sizemode="fullscreen"]) .titlebar-max {
+  display: none !important;
+}
+
+toolbar .toolbarbutton-1 {
+  &:not([disabled]) {
+    &:is([open], [checked]) > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
+      background-color: transparent !important;
+      color: inherit;
+      outline-color: transparent !important;
+    }
+  }
+}
+
+toolbar {
+  appearance: auto;
+  -moz-default-appearance: toolbar;
+  min-width: 1px;
+  min-height: 0px !important;
+}
+
+#context-navigation {
+  visibility: collapse !important;
+}
+
+.browser-toolbar:not(.titlebar-color) {
+  background-color: transparent !important;
+  background-clip: padding-box;
+  color: var(--toolbar-color);
+}
+
+#menubar-items {
+	/*order: 1 !important;
+  flex-direction: column;
+  position:relative !important;*/
+  margin-left: 10px !important;
+  margin-top:7px !important;
+  /*margin-left:10px !important;*/
+ /* z-index: 4 !important;*/
+}
+
+
+
+#history-menu, #bookmarksMenu {
+  visibility: 2;
+  width: 0;
+  border: 0 !important;
+  
+}
+
+.urlbar-input-container {
+  border: 1px solid hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 10%), calc(var(--you-l) - 19%))  !important;
+    border-radius: 9px !important;
+}
+
+.urlbarView-results {
+  padding-block: 0px !important;
+  white-space: nowrap;
+}
+
+#urlbar-container {
+	order: 2 !important;
+  align-items: center;
+  /*margin-left: 195px !important;*/
+  height:24px !important;
+  margin-top: 0px !important;
+  margin-bottom: 3px !important;
+}
+#urlbar,
+.urlbar-input-container {
+    min-height: 20px !important;
+    padding: 0px !important;
+    font-size: 8pt !important; 
+    outline: 0px !important;	
+}
+
+#urlbar {
+	top: 5px !important;
+}
+
+
+#urlbar[breakout-extend]{
+    min-height: 20px !important;
+	margin-right: 30px !important;
+    padding: 1px !important;
+    font-size: 8pt !important;  
+}
+
+#urlbar[breakout][breakout-extend] {
+  top: 5px !important;
+  left: 0 !important;
+  width: 100% !important;
+}
+
+#urlbar[breakout][breakout-extend] .urlbar-input-container {
+	height: 18px !important;
+	padding-block: 0px !important;
+	padding-inline: 15px 0px !important;
+	border:0px !important;
+	margin-top: -1px !important;
+	margin-left: -1px !important;
+	margin-right: -2px !important;
+}
+
+#urlbar:not([breakout-extend]){
+	height:20px !important;
+}
+
+#favimginurlbar {
+	margin: 1px !important;
+}
+
+
+#nav-bar {
+	height: 50px !important;
+}
+
+#urlbar-go-button, .search-go-button {
+	display: none !important;
+}
+
+#additional_top_toolbar1 {
+  background-color: transparent !important;
+     background-image: var(--default-titlebar-inactive) !important;
+	border-top: 1px solid hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 10%), calc(var(--you-l) - 19%)) !important;
+	border-left: 0px solid transparent !important;
+	border-right: 0px solid transparent !important;
+	border-bottom: 0px solid transparent !important;
+	  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+  background-repeat: no-repeat !important;
+     background-size: 100% 100% !important;
+	 background-position: center !important;
+	 margin-left: 0px !important;
+  margin-right: 0px !important;
+    height: 34px !important;
+  padding-right: 7px !important;
+   box-shadow: 0px -2px 2px rgba(255,255,255,0.2) !important;
+   z-index: 3 !important;
+}
+
+#additional_top_toolbar2, #configuration_toolbar {
+  background-color: transparent !important;
+     background-image: var(--default-titlebar-inactive) !important;
+	border-right: 0px solid #305b93 !important;
+	border-left: 0px solid #305b93 !important;
+	  border-bottom: 1px solid hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 10%), calc(var(--you-l) - 19%)) !important;
+  background-repeat: no-repeat !important;
+     background-size: 100% 100% !important;
+	 background-position: center !important;
+	 margin-left: 0px !important;
+  margin-right: 0px !important;
+  max-height:28px !important;
+  min-height: 1px !important;  
+}
+
+#TabsToolbar {
+  background-color: rgb(255,255,255) !important;
+  background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, hsl(calc(var(--you-h) + 7), calc(var(--you-s) - 36%), calc(var(--you-l) + 41%)) 50%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 17%), calc(var(--you-l) + 28%)) 100%) !important;
+margin-right: -1px !important;
+margin-left: -1px !important;
+}
+
+#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon, #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+  box-shadow: none !important;
+}
+#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon, .tab-background:is([selected], [multiselected]) {
+  /*background-color: transparent !important;*/
+  background-origin: border-box;
+  background-repeat: repeat-x;
+}
+
+.tabbrowser-tab {
+  background-color: hsl(calc(var(--you-h) - 2), calc(var(--you-s) - 13%), calc(var(--you-l) + 20%)) !important;
+  border-image: url("resource/png/bg.png") 30% !important;
+  border: 5px !important;
+  clip-path: polygon(0 0, 89.5% 0%, 95.9% 100%, 0% 100%) !important;
+  color-scheme: unset;
+  border-radius: 0;
+  margin: 0;
+  padding: 0 2px;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: clip;
+  overflow-clip-margin: 2px;
+  max-height: 24px !important;
+  min-height: 16px !important;
+}
+
+toolbar .toolbarbutton-1 {
+  &:not([disabled]) {
+    &:hover > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
+      background-color: transparent !important;
+      color: inherit;
+      outline-color: transparent !important;
+    }
+  }
+}
+
+.tab-content {
+  max-height: 24px !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+  background-color: hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 21%), calc(var(--you-l) - 6%)) !important;
+  clip-path: polygon(0 0, 89.5% 0%, 96% 100%, 0% 100%) !important;
+	margin-top:2px !important;
+	max-height: 25px !important;
+	z-index:2!important;
+}
+
+.tabbrowser-tab:not([selected="true"]) .tab-background {
+ min-height: 17px !important;
+ border-bottom: 1px solid accentcolor !important;
+ clip-path: polygon(0 0, 90% 0%, 96% 100%, 0% 100%) !important;
+}
+
+tooltip {
+	color: #fff !important;
+}
+
+.tab-background {
+  border-top-left-radius: 3px !important;
+  margin-block: 0px !important;
+  margin-top: 1px !important;
+  margin-left: -1px !important;
+  background-color: aliceblue !important;
+  clip-path: polygon(0 0, 90% 0%, 96.5% 100%, 0% 100%) !important;
+  border-radius: 0px !important;
+}
+
+.tab-background:is([selected], [multiselected]) {
+  min-height: 18px !important;
+  border-bottom: 1px solid hsl(calc(var(--you-h) - 2), calc(var(--you-s) - 13%), calc(var(--you-l) + 20%)) !important;
+box-shadow: none !important;
+
+}
+
+.tab-secondary-label {
+  visibility: collapse !important;
+}
+.tabbrowser-tab:not([selected="true"]) {
+  margin-top: 4px !important;
+  margin-bottom: 0px !important;
+  max-height: 18px !important;
+}
+
+.tabbrowser-tab:not([selected="true"]) .tab-content {
+  padding-top: 5px !important;
+}
+
+.tabbrowser-tab:not([selected="true"]) .tab-content {
+	margin-top: -6px !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-content {
+	margin-top: -3px !important;
+}
+
+#TabsToolbar .toolbarbutton-1 {
+  margin: 0 0 var(--tabs-navbar-shadow-size);
+  height: 18px !important;
+}
+
+#TabsToolbar .toolbarbutton-1 .toolberbutton-text{
+  text-shadow: none !important;
+  color: hsl(calc(var(--you-h) - 2), calc(var(--you-s) - 7%), calc(var(--you-l) - 21%))!important;
+}
+
+#tabbrowser-tabs, #tabbrowser-arrowscrollbox, #tabbrowser-tabs[positionpinnedtabs] > #tabbrowser-arrowscrollbox > .tabbrowser-tab[pinned] {
+  min-height: 0px !important;
+  max-height: 22px !important;
+}
+
+#tabbrowser-tabs {
+	margin-left:10px !important;
+	margin-top: 5px !important;
+}
+
+#tabbrowser-tabs:not([secondarytext-unsupported]) .tab-label-container {
+  height: inherit !important;
+}
+
+#urlbar-background {
+  background-color: rgb(227,237,247) !important;
+  background: linear-gradient(90deg, hsl(calc(var(--you-h) - 2), calc(var(--you-s) - 5%), calc(var(--you-l) + 36%))  0%, hsl(calc(var(--you-h) - 2), calc(var(--you-s) - 5%), calc(var(--you-l) + 36%))  60%, hsl(var(--you-h), calc(var(--you-s) - 15%), calc(var(--you-l) + 22%))  100%);
+  border: 1px solid hsl(var(--you-h), calc(var(--you-s) - 10%), calc(var(--you-l) - 11%)) !important;
+  box-shadow: 0px 1px hsl(calc(var(--you-h) - 2), calc(var(--you-s) + 13%), calc(var(--you-l) + 16%)) , 0px -1px hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 10%), calc(var(--you-l) - 25%))  !important;
+  min-height:19px !important;
+  border-radius: 10px !important;
+  }
+
+#back-button > .toolbarbutton-icon,
+#forward-button > .toolbarbutton-icon {
+  width: auto !important;
+  height: auto !important;
+  padding: 0px !important;
+}
+
+ .toolbarbutton-1[disabled="true"] {
+  opacity: 100% !important;
+}
+
+#nav-bar #forward-button::after {
+  content: '';
+  background-image: url("resource/svg/frame.svg");
+  position: absolute;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 60px;
+  top: 5px;
+  left: 6px;
+  z-index: 0;
+}
+
+toolbar .toolbarbutton-1 {
+  appearance: none;
+  margin: 0;
+  padding: 0 !important;
+  justify-content: center;
+}
+
+#back-button {
+	padding-right: 0px !important;
+  list-style-image: url("resource/svg/back 1.svg") !important;
+  padding-bottom: 0px !important;
+  /*mix-blend-mode: luminosity !important;*/
+  height: 28px !important;
+  min-width: 28px !important;
+  max-width: 28px !important;
+  box-shadow: 0px 1px 0px hsl(var(--you-h), calc(var(--you-s) + 10%), calc(var(--you-l) + 3%))!important;;
+  background-color: accentcolor !important;
+  border-radius: 50% !important;
+  margin-top: 8px !important;
+  padding-left: 0px !important; 
+  margin-left: 9px !important;
+  z-index: 1 !important;
+}
+#back-button:hover {
+  list-style-image: url("resource/svg/back 2.svg") !important;
+  background-color: hsl(var(--you-h), calc(var(--you-s) + 22%), calc(var(--you-l) + 12%))!important;
+}
+/*#back-button:hover:active {
+  list-style-image: url("resource/png/bp.png") !important;
+}
+#back-button[disabled="true"] {
+	list-style-image: url("resource/png/bd.png") !important;
+}*/
+#forward-button {
+	padding-left: 4px !important;
+  list-style-image: url("resource/svg/forward.svg") !important;
+  padding-bottom: 6px !important;
+}
+
+/*#forward-button:hover {
+  list-style-image: url("resource/png/fwh.png") !important;
+}
+#forward-button:hover:active {
+  list-style-image: url("resource/png/fwa.png") !important;
+}
+
+#forward-button[disabled="true"] {
+	list-style-image: url("resource/png/fwd.png") !important;
+}*/
+
+#home-button {
+  list-style-image: url("resource/png/h.png") !important;
+}
+
+#find-button {
+  list-style-image: url("resource/png/s.png") !important;
+}
+
+#bookmarks-menu-button {
+  list-style-image: url("resource/png/f.png") !important;
+}
+
+#email-link-button{
+  list-style-image: url("resource/png/m.png") !important;
+}
+
+#downloads-button #downloads-indicator-anchor {
+  list-style-image: url("resource/ico/dl.ico") !important;
+  height:20px !important;
+  width: 20px !important;
+}
+
+#history-panelmenu {
+  list-style-image: url("resource/ico/History.ico") !important;
+}
+
+#downloads-button  .toolbarbutton-badge-stack {
+	padding: 0px !important;
+}
+#cut-button  {
+  list-style-image: url("resource/ico/cut.ico") !important;
+}
+#copy-button  {
+  list-style-image: url("resource/ico/c.ico") !important;
+}
+
+#paste-button {
+  list-style-image: url("resource/ico/p.ico") !important;
+}
+
+#preferences-button  {
+  list-style-image: url("resource/ico/s.ico") !important;
+}
+
+#go-button  {
+	position: relative !important;
+	order: 3 !important;
+  list-style-image: url("resource/svg/go.svg") !important;
+}
+
+#go-button:hover  {
+  list-style-image: url("resource/svg/go_hover.svg") !important;
+}
+#go-button:hover:active  {
+  list-style-image: url("resource/svg/go_hover_active.svg") !important;
+}
+
+#stop-reload-button {
+	order: 4 !important;
+  mix-blend-mode: luminosity !important;
+}
+
+#reload-button  {
+  list-style-image: url("resource/svg/refresh.svg") !important;
+}
+#reload-button:hover{
+  list-style-image: url("resource/svg/refresh_hover.svg") !important;
+}
+#reload-button:hover:active  {
+  list-style-image: url("resource/svg/refresh_hover_active.svg") !important;
+}
+
+#stop-button  {
+  list-style-image: url("resource/svg/stop.svg") !important;
+}
+#stop-button:hover  {
+  list-style-image: url("resource/svg/stop_hover.svg") !important;
+}
+#stop-button:hover:active  {
+  list-style-image: url("resource/svg/stop_hover_active.svg") !important;
+}
+
+#sidebar-button {
+  list-style-image: url("resource/svg/exp.svg") !important;
+}
+
+#sidebar-button .toolbarbutton-text::before {
+  content: 'Show sidebar';
+  margin-top: -1px !important;
+}
+
+.urlbarView-button {
+  min-width: 20px !important;
+  min-height: 20px !important;
+}
+
+body:has(#sidebar-box[checked=true]) #sidebar-button .toolbarbutton-text::before {
+  content: 'Hide sidebar';
+}
+body:has(#sidebar-box[checked=true]) #sidebar-button {
+list-style-image: url("resource/svg/col.svg") !important;
+margin-top: -1px !important;
+}
+
+#additional_top_toolbar1 .toolbarbutton-1 > .toolbarbutton-icon {
+  padding: 0px !important;
+  margin-top: 0px !important;
+  height: 20px !important;
+  width: 20px !important;
+  margin-bottom: 3px !important;
+}
+
+#nav-bar .toolbarbutton-1, toolbarbutton.bookmark-item:not(.subviewbutton) {
+  flex-direction: column !important;
+    color: #fff !important;
+}
+
+#TabsToolbar .titlebar-buttonbox-container {
+	visibility: collapse !important;
+}
+
+.titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
+  width: 0px !important;
+}
+
+#unified-extensions-button {
+  list-style-image: none !important;
+}
+
+#home-button > .toolbarbutton-icon,
+#bookmarks-menu-button > .toolbarbutton-icon,
+#find-button > .toolbarbutton-icon,
+#email-link-button > .toolbarbutton-icon {
+  padding: 0px !important;
+  width: 38px !important;
+  height: 38px !important;
+}
+
+#PlacesToolbarItems .bookmark-item > .toolbarbutton-icon  {
+  padding: 0px !important;
+  width: 16px !important;
+  height: 16px !important;
+  list-style-image: url("s.png") !important;
+}
+
+toolbarbutton.bookmark-item:not(.subviewbutton) {
+  margin: 0px !important;
+  padding: var(--bookmark-block-padding) 4px;
+}
+
+#customization-content-container {
+  -moz-default-appearance: -moz-win-exclude-glass !important;
+}
+
+#additional_top_toolbar2 toolbarbutton .toolbarbutton-text, #nav-bar toolbarbutton:not(#back-button):not(#forward-button):not(#unified-extensions-button):not(#PanelUI-menu-button) .toolbarbutton-text, #TabsToolbar-customization-target toolbarbutton:not(#sidebar-button) .toolbarbutton-text {
+  display: unset !important;
+}
+
+#nav-bar .toolbarbutton-1 > .toolbarbutton-text, .bookmark-item > .toolbarbutton-text {
+  padding-top: 0px !important;
+  min-height: 8pt !important;
+  opacity: 0.7 !important;
+  text-shadow: 2px 1px 5px rgba(0,0,0, 0.6) !important;
+  width: 70px !important;
+  margin-top: -4px !important;
+}
+
+#additional_top_toolbar2 .toolbarbutton-1 > .toolbarbutton-text {
+	padding: 4px !important;
+    min-height: 8pt !important;
+	color: #fff !important;
+	opacity:1 !important;
+	text-shadow: -2px 2px 5px #0033A099 !important;
+}
+
+#TabsToolbar-customization-target .toolbarbutton-1 > .toolbarbutton-text {
+	padding: 4px !important;
+    min-height: 8pt !important;
+	color: #2b5e8f !important;
+	opacity:1 !important;
+	text-shadow: unset !important;
+}
+
+#additional_top_toolbar2 .toolbarbutton-1 {
+    padding: 8px !important;
+}
+
+#additional_top_toolbar2 .toolbarbutton-1 > .toolbarbutton-icon, #TabsToolbar-customization-target .toolbarbutton-1 > .toolbarbutton-icon
+{
+	height: 20px !important;
+	width:20px !important;
+	padding:0px !important;
+}
+
+#PanelUI-button {
+  visibility: collapse !important;
+}
+ #browser-bottombox {
+	height:16px !important;
+  background-color: hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 17%), calc(var(--you-l) + 28%)) !important;
+  background-image: linear-gradient(90deg, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 17%), calc(var(--you-l) + 28%)) 0%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 17%), calc(var(--you-l) + 28%)) 10%, hsl(var(--you-h), calc(var(--you-s) - 14%), calc(var(--you-l) + 21%)) 50%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 17%), calc(var(--you-l) + 28%)) 90%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 17%), calc(var(--you-l) + 28%)) 100%);
+  background-repeat: no-repeat;
+  background-size: 80% 100%;
+  background-position: top;
+}
+.statusBarInner {
+  height: 16px;
+  background-image: linear-gradient(180deg,transparent 0%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 17%), calc(var(--you-l) + 28%)) 85%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 17%), calc(var(--you-l) + 28%)) 100%);
+}
+
+#statuspanel, #statuspanel-label {
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  background-color: transparent !important;
+}
+
+.identity-box-button:hover,
+#tracking-protection-icon-container:hover,
+.identity-box-button:hover:active,
+#tracking-protection-icon-container:hover:active,
+#tracking-protection-icon-container[open=true],
+.identity-box-button[open=true],
+.urlbar-page-action:hover,
+.urlbar-page-action:hover:active {
+  background-color: transparent !important;
+}
+
+.urlbar-page-action {
+	margin-top: 1px !important;
+}
+
+#urlbar[breakout][breakout-extend] .urlbar-page-action {
+	margin-right: -1px !important;
+}
+
+body:has(#sidebar-box[checked=true]) #statuspanel[type=overLink] {
+  margin-bottom:-24px !important;
+  left:-216px !important;
+}
+
+body:has(#sidebar-box[checked=true]) #statuspanel[type=status] {
+	  margin-bottom:-10px !important;
+	  left:-216px !important;
+}
+
+body:has(#statuspanel[type=overLink]) .statusBarDone, body:has(#statuspanel[type=status]) .statusBarDone  {
+  visibility: hidden !important;
+}
+
+#statuspanel {
+  position: absolute;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+text-align: center !important;
+
+}
+
+#statuspanel:not([hidden]) {
+  max-width: 100% !important;
+  pointer-events: none;
+  padding-top: 0 !important;
+}
+
+#statuspanel[sizelimit] {
+  max-width: 100% !important;
+}
+
+#statuspanel[type=status] {
+	position: absolute;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+text-align: center !important;
+  width: 100% !important;
+  visibility: visible !important;
+}
+
+#statuspanel[type=OverLink] {
+	margin-bottom: -16px !important;
+	opacity: 1 !important;
+	height:16px !important;
+}
+
+#statuspanel {
+  &[inactive], :root[inDOMFullscreen] &:not([type="overLink"]) {
+    transition: none;
+    opacity: 1 !important;
+    visibility: hidden;
+  }
+}
+
+#statuspanel-label:is(label, description)[value][crop]::before {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+}
+
+
+#statuspanel-label, #statuspanel[type=status] #statuspanel-label {
+	border: 0px !important;
+	  position: absolute;
+  margin-left: auto !important;
+  margin-right: auto !important;
+text-align: center !important;
+padding: 0px !important;
+width: 100% !important;
+}
+
+#tabbrowser-tabs tab:not(:first-of-type) {
+	margin-left: -15px !important;
+}
+
+#browser, #sidebar-box, #appcontent {
+  background-color: rgb(255,255,255) !important;
+background-image: linear-gradient(180deg, rgba(255,255,255,0) 0%, hsl(calc(var(--you-h) + 7), calc(var(--you-s) - 36%), calc(var(--you-l) + 41%)) 50%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 17%), calc(var(--you-l) + 28%)) 100%) !important;
+}
+
+#sidebar-box {
+	margin-top: -25px !important;
+}
+
+#sidebar-header {
+  padding: 0px !important;
+  border-bottom: 0px !important;
+  background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, hsl(calc(var(--you-h) + 7), calc(var(--you-s) - 36%), calc(var(--you-l) + 41%)) 50%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 17%), calc(var(--you-l) + 28%)) 100%) !important;
+}
+
+#tabbrowser-tabbox {border-top: 1px solid hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 21%), calc(var(--you-l) - 6%)) !important;
+margin-top: -1px !important;
+}
+
+#sidebar-splitter {
+  visibility: collapse !important;
+}
+
+body:has(#sidebar-box[checked=true]) #tabbrowser-tabbox {
+  margin-inline: 10px !important;
+margin-bottom: 10px !important;
+border-left: 3px solid transparent !important;
+border-right: 3px solid transparent !important;
+border-bottom: 3px solid white !important;
+border-top: 0px !important;
+background-color: rgb(255,255,255) !important;
+background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 21%), calc(var(--you-l) - 6%)) 100%) !important;
+border-bottom-left-radius: 12px !important;
+border-bottom-right-radius: 12px !important;
+border-top-right-radius: 12px !important;
+  margin-top:-1px !important;
+    box-shadow: 0px 1px 5px rgba(255,255,255,1) !important;
+}
+
+body:has(#sidebar-box[checked=true]) #TabsToolbar {
+	padding-left: 216px !important;
+}
+
+body:has(#sidebar-box[checked=true]) #tabbrowser-tabpanels {
+ border: 0px solid transparent !important;
+border-bottom-left-radius: 12px !important;
+border-bottom-right-radius: 12px !important;
+border-top-right-radius: 12px !important;
+margin-left: -2px !important;
+margin-right: -2px !important;
+margin-top: 1px !important;
+margin-bottom: -3px !important;
+padding:2px !important;
+}
+
+body:has(#sidebar-box[checked=true]) .browserSidebarContainer {
+  margin: -2px !important;
+}
+
+body:has(#sidebar-box[checked=true]) browser {
+  border-radius: 12px !important;
+    border-top-left-radius: 12px;
+  border-top-left-radius: 0px !important;
+}
+
+#main-menubar > menu {
+  color: hsl(calc(var(--you-h) - 1), calc(var(--you-s) + 7%), calc(var(--you-l) + 12%)) !important;
+}
+#titlebar spacer {
+	visibility: collapse !important;
+}
+toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], toolbarspring {
+  flex: 1;
+  min-width: 28px;
+  max-width: unset !important;
+}
+#activity_throbber .toolbarbutton-text::after {
+	content: attr(value);
+	color:#fff;
+	text-shadow: #000080 1px 1px !important;
+	opacity:0.8;
+	
+}
+#activity_throbber .toolbarbutton-text{
+	display: unset !important;
+  height: 16px !important;
+  padding-top: 0px !important;
+  margin-top: -15px !important;
+  min-width: 150px !important;
+}
+#activity_throbber .toolbarbutton-icon{
+  height: 16px !important;
+  padding: 0px !important;
+  list-style-image: url("ie.svg") !important;
+  margin-right: -3px !important;
+}
+#activity_throbber {
+	margin-top: -1px !important;
+	min-width: 166px !important;
+}
+
+#TabsToolbar .toolbarbutton-1 {
+  margin: 0;
+  margin-block: 4px !important;
+}
+
+#navigator-toolbox {
+	border-left: 1px solid hsl(calc(var(--you-h) - 1), calc(var(--you-s) + 7%), calc(var(--you-l) + 12%)) !important;
+	border-right: 1px solid hsl(calc(var(--you-h) - 1), calc(var(--you-s) + 7%), calc(var(--you-l) + 12%)) !important;
+  border-bottom: 0px !important;
+background-color: var(--default-titlebar-color) !important;
+}
+
+#titlebar{
+background-color: var(--default-titlebar-color) !important;
+background-image: var(--default-titlebar-active) !important;
+}
+#nav-bar {
+	border: 0px solid transparent !important;
+  border-bottom: 0px !important;
+  border-top: 0px !important;
+background-color: var(--default-titlebar-color) !important;
+background-image: var(--default-titlebar-active) !important;
+} 
+
+#nav-bar:-moz-window-inactive{
+background-image: linear-gradient(90deg, hsl(var(--you-h), var(--you-s), var(--you-l)) 0%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) + 2%), calc(var(--you-l) + 7%)) 45%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) + 3%), calc(var(--you-l) + 7%)) 50%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) + 2%), calc(var(--you-l) + 7%)) 55%, hsl(var(--you-h), var(--you-s), var(--you-l)) 100%) !important;
+}
+
+#titlebar:-moz-window-inactive{
+background-image: unset !important;
+}
+
+#titlebar {
+	/*margin-top:1px !important;*/
+	z-index: 4 !important;
+}
+
+#titlebar {
+  :root[tabsintitlebar] & {
+    &:-moz-window-inactive {
+      opacity: 100 !important;
+    }
+  }
+}
+
+@media not (prefers-contrast) {
+  .titlebar-close:hover {
+    stroke: unset !important;
+    background-color: transparent !important;
+  }
+}
+
+#urlbar-input-container {
+  background-color: hsl(var(--you-h), calc(var(--you-s) + 3%), calc(var(--you-l) + 8%)) !important;
+  background: linear-gradient(0deg, hsl(var(--you-h), calc(var(--you-s) + 3%), calc(var(--you-l) + 8%))  0%, hsl(var(--you-h), calc(var(--you-s) - 7%), calc(var(--you-l) + 1%)) 50%, hsl(var(--you-h), calc(var(--you-s) + 3%), calc(var(--you-l) + 8%)) 100%) !important;
+border-top-left-radius: 10px !important;
+	border-bottom-left-radius: 10px !important;
+	  border: 1px solid #4476ae !important;
+	  border-right: 0px !important;
+	  background-position: left !important;
+	  background-repeat: no-repeat !important;
+	  background-size: 5% !important;  
+}
+
+#urlbar[breakout][breakout-extend] #urlbar-input-container {
+  background-color: transparent !important;
+  background: none !important;
+  margin-left: 10px !important;
+  margin-right: 20px !important;
+}
+
+#identity-box {
+  padding-right: 5px !important;
+  background-color: hsl(var(--you-h), calc(var(--you-s) + 3%), calc(var(--you-l) + 8%)) !important;
+  background: linear-gradient(0deg, hsl(var(--you-h), calc(var(--you-s) + 3%), calc(var(--you-l) + 8%))  0%, hsl(var(--you-h), calc(var(--you-s) - 7%), calc(var(--you-l) + 1%)) 50%, hsl(var(--you-h), calc(var(--you-s) + 3%), calc(var(--you-l) + 8%)) 100%) !important;
+}
+
+.urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box {
+  list-style-image: url("resource/ico/sok.ico") !important;
+	filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+
+  &[active] {
+    list-style-image: url("resource/ico/sok.ico") !important;
+	filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+  }
+
+  &[hasException] {
+      list-style-image: url("resource/ico/sa.ico");
+  filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+  }
+}
+
+#tracking-protection-icon-container {
+ padding-right: 0px !important;
+ background: linear-gradient(0deg, hsl(var(--you-h), calc(var(--you-s) + 3%), calc(var(--you-l) + 8%))  0%, hsl(var(--you-h), calc(var(--you-s) - 7%), calc(var(--you-l) + 1%)) 50%, hsl(var(--you-h), calc(var(--you-s) + 3%), calc(var(--you-l) + 8%)) 100%) !important;
+ border-radius: 0px !important;
+}
+
+:root:not([uidensity="compact"]) .urlbarView-row:not([type="tip"], [type="dynamic"]) {
+  min-height: 20px !important;
+  max-height: 20px !important;
+}
+
+.urlbarView-row-inner {
+  padding-block: 2px !important;
+}
+
+.urlbarView-row[row-selectable]:not([selected]):hover
+{
+  background-color: transparent !important;
+  background-image: linear-gradient(90deg, hsl(var(--you-h), calc(var(--you-s) - 15%), calc(var(--you-l) + 22%))  0%, transparent 100%) !important;
+  background-size: 100% 20px !important;
+  background-position: center !important;
+  mix-blend-mode: darken !important;
+}
+
+#urlbar[breakout][breakout-extend] #tracking-protection-icon-container {
+	visibility:collapse !important;
+}
+
+#identity-box[pageproxystate="valid"].notSecureText > .identity-box-button, #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button, #urlbar-label-box {
+  background-color: transparent !important;
+  color: #fff !important;
+  padding-inline: 8px;
+  border-radius: var(--urlbar-icon-border-radius);
+}
+
+#urlbar[breakout][breakout-extend] #identity-box {
+  background-color: transparent !important;
+  background: none !important;
+  border: 1px solid transparent !important;
+}
+
+#tabs-newtab-button, #vertical-tabs-newtab-button, #TabsToolbar #new-tab-button, #new-tab-button {
+	list-style-image: url("resource/svg/tab.svg") !important;
+}
+
+#tabs-newtab-button {
+	padding-bottom: 6px !important;
+}
+
+#identity-box[pageproxystate="valid"].verifiedDomain #identity-icon,
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon {
+  list-style-image: url("resource/ico/lock.ico") !important;
+  filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+}
+
+#urlbar[breakout][breakout-extend] .identity-box-button {
+	visibility:collapse !important;
+}
+
+#star-button {
+	list-style-image: url("resource/ico/favorites.ico") !important;
+	filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+}
+
+#identity-box[pageproxystate="valid"].verifiedDomain #identity-icon:hover,
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon:hover,
+#star-button:hover, #star-button[starred] {
+	filter: unset !important; 
+}
+
+#statuspanel-label, .statusBarDone {
+	text-align: center !important;
+	text-shadow: 2px 1px 5px black !important;
+	color: #fff !important;
+}
+
+#PlacesChevron .toolbarbutton-text {
+	max-width: 0px !important;
+}
+
+#PlacesChevron .toolbarbutton-icon {
+	list-style-image: url("resource/svg/chevr.svg") !important;
+	width: 16px !important;
+	height:16px !important;
+	padding: 0px !important;
+}
+
+#nav-bar-overflow-button .toolbarbutton-text {
+	max-width: 0px !important;
+}
+
+#nav-bar-overflow-button {
+		list-style-image: url("resource/svg/chevr.svg") !important;
+	width: 16px !important;
+	height:16px !important;
+	padding: 0px !important;
+	padding-top: 10px !important;
+	padding-right: 4px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item > .toolbarbutton-icon {
+  margin-top: -18px !important;
+  margin-bottom: 12px !important;
+  margin-right: 0px !important;
+  filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:hover > .toolbarbutton-icon, #PlacesToolbarItems > .bookmark-item:hover:active > .toolbarbutton-icon {
+  filter: unset !important;
+}
+
+#urlbar:not(.searchButton) > .urlbar-input-container > #identity-box[pageproxystate="invalid"] #identity-icon {
+  list-style-image: url("resource/ico/search.ico") !important;
+  filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+}
+
+toolbarseparator {
+  appearance: none !important;
+min-width: 1px !important;
+max-width: 1px !important;
+background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%) !important;
+height: auto !important;
+margin-inline: 4px !important;
+margin-top: 6px !important;
+margin-bottom: 14px !important;
+opacity: 0.7 !important;
+}
+
+#statuspanel[type=overLink] {
+  margin-bottom:-14px !important;
+}
+
+#statuspanel[inactive][previoustype=overLink] {
+  transition: none !important;
+}
+
+findbar {
+  position: absolute !important;
+  width: 100% !important;
+  top: calc(100% - 38px) !important;
+}
+
+#alltabs-button .toolbarbutton-icon  {
+  list-style-image: url("resource/svg/arrw.svg") !important;
+ width: 100% !important;
+ margin-top: -6px !important;
+}
+
+#alltabs-button::before {
+  content: 'List';
+  margin-right: -1px;
+  color: hsl(calc(var(--you-h) - 2), calc(var(--you-s) - 7%), calc(var(--you-l) - 21%))!important;
+}
+#alltabs-button .toolbarbutton-text::before {
+  content: 'all tabs';
+  color: hsl(var(--you-h), calc(var(--you-s) + 33%), calc(var(--you-l) + 18%))!important;
+  text-shadow: none !important;
+}
+
+#alltabs-button .toolbarbutton-badge-stack {
+  padding: 0px !important;
+  order: 2 !important;
+  margin-top: 10px !important;
+  margin-left: -2px !important;
+}
+
+ #alltabs-button {
+	 margin-top: 3px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  margin-right: 15px !important;
+}
+
+.tab-close-button {
+  -moz-context-properties: fill, fill-opacity;
+  margin-inline-end: 12px !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0px !important;
+  border-radius: var(--tab-border-radius);
+  list-style-image: url("resource/svg/x.svg") !important;
+}
+
+.tab-close-button:hover {
+	list-style-image: url("resource/svg/x_hov.svg") !important;
+}
+
+
+.close-icon:hover {
+  background-color: transparent !important;
+}
+
+#PlacesToolbarItems .bookmark-item::before {
+	content: url("resource/svg/def.svg");
+    box-shadow: 2px 2px 5px rgba(0,51,160,0.3);
+    height: 26px;
+    margin-top: -2px;
+    width: 34px !important;
+}
+
+.titlebar-button {
+width: 17px !important;
+appearance: unset !important;
+padding: 0px !important;
+}
+
+.titlebar-button {
+  & > .toolbarbutton-icon {
+    width: 17px !important;
+    height: 17px !important;
+  }
+}
+
+.titlebar-close .toolbarbutton-icon{
+		appearance: unset !important;
+   list-style-image: url("resource/svg/cl.svg") !important;
+}
+.titlebar-close:hover .toolbarbutton-icon{
+   list-style-image: url("resource/svg/cl_h.svg") !important;
+}
+.titlebar-close:hover:active .toolbarbutton-icon{
+   list-style-image: url("resource/svg/cl_p.svg") !important;
+}
+.titlebar-close[disabled="true"] .toolbarbutton-icon{
+   list-style-image: url("resource/svg/cl_d.svg") !important;
+}
+
+.titlebar-min .toolbarbutton-icon {
+	width: 17px !important;
+	appearance: unset !important;
+   list-style-image: url("resource/svg/min.svg") !important;
+}
+.titlebar-min:hover .toolbarbutton-icon{
+   list-style-image: url("resource/svg/min_h.svg") !important;
+}
+.titlebar-min:hover:active .toolbarbutton-icon{
+   list-style-image: url("resource/svg/min_p.svg") !important;
+}
+.titlebar-min[disabled="true"] .toolbarbutton-icon{
+   list-style-image: url("resource/svg/min_d.svg") !important;
+}
+
+.titlebar-max .toolbarbutton-icon{
+	width: 17px !important;
+		appearance: unset !important;
+   list-style-image: url("resource/svg/max.svg") !important;
+}
+.titlebar-max:hover .toolbarbutton-icon{
+   list-style-image: url("resource/svg/max_h.svg") !important;
+}
+.titlebar-max:hover:active .toolbarbutton-icon{
+   list-style-image: url("resource/svg/max_p.svg") !important;
+}
+.titlebar-max[disabled="true"] .toolbarbutton-icon{
+   list-style-image: url("resource/svg/max_d.svg") !important;
+}
+
+.titlebar-restore .toolbarbutton-icon{
+	width: 17px !important;
+		appearance: unset !important;
+   list-style-image: url("resource/svg/rest.svg") !important;
+}
+.titlebar-restore:hover .toolbarbutton-icon{
+   list-style-image: url("resource/svg/rest_h.svg") !important;
+}
+.titlebar-restore:hover:active .toolbarbutton-icon{
+   list-style-image: url("resource/svg/rest_p.svg") !important;
+}
+.titlebar-restore[disabled="true"] .toolbarbutton-icon{
+   list-style-image: url("resource/svg/rest_d.svg") !important;
+}
+.titlebar-buttonbox-container {
+	margin-right:10px !important;
+	height: 16px !important;
+	margin-top: -2px !important;
+  right: 0px !important;
+  position: absolute !important;
+}
+
+@media not (prefers-contrast) {
+  .titlebar-button:hover {
+    background-color: transparent !important;
+  }
+}
+
+  menupopup {
+    appearance: unset !important;
+    -moz-default-appearance: menupopup;
+    color-scheme: light !important;
+    background-color: Menu !important;
+	background-image: linear-gradient(170deg, hsl(calc(var(--you-h) - 2), calc(var(--you-s) + 13%), calc(var(--you-l) + 10%)) 0%, hsl(var(--you-h), var(--you-s), var(--you-l)) 25%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 10%), calc(var(--you-l) - 11%)) 100%) !important;
+    border: 1px solid hsl(calc(var(--you-h) - 1), calc(var(--you-s) + 24%), calc(var(--you-l) + 24%)) !important;
+    --panel-background: transparent !important;
+    --panel-border-color: transparent !important;
+	--panel-shadow: none !important;
+	--panel-border-color: transparent !important;
+    --nested-margin: 0px !important;
+    --panel-shadow-margin: -4px !important;
+}
+
+menupopup {
+  --panel-padding: 4px !important;
+  margin: -1px !important;
+}
+menupopup {
+  @media (-moz-platform: linux) or (-moz-platform: windows) {
+    & {
+      --panel-shadow-margin: -4px !important;
+    }
+  }
+}
+
+	
+menupopup > menu,
+menuitem {
+  &:where([disabled="true"]) {
+    color: var(--panel-disabled-color);
+    text-shadow: none;
+  }
+
+  &:where([_moz-menuactive]:not([disabled="true"])) {
+    background-color: transparent !important;
+	appearance: unset !important;
+	background-image: linear-gradient(90deg, hsl(calc(var(--you-h) - 2), calc(var(--you-s) + 36%), calc(var(--you-l) + 18%)) 0%, transparent 100%)!important;
+	background-repeat: no-repeat !important;
+	background-size: 100% 100% !important;
+	color: white !important;
+	height:19px !important;
+  }
+
+  &:where([_moz-menuactive="true"][disabled="true"]) {
+  background-color: transparent !important;
+  }
+}
+
+menupopup {
+  @media (-moz-platform: windows) {
+    & > menu, & > menuitem, & > .menuitem-iconic {
+      padding-block: 0 !important;
+      padding-inline-start: 2.5em !important;
+	  height:19px !important;
+		margin: 2px !important;
+		appearance: unset !important;
+		color: hsl(calc(var(--you-h) - 4), calc(var(--you-s) + 29%), calc(var(--you-l) + 32%)) !important;
+    }
+  }
+}
+
+menuitem:is([type="checkbox"],[type="radio"]) {
+  appearance: unset !important;
+  padding-inline-start: 6px !important;
+}
+
+.menu-text {
+  padding-inline-start: 0 !important;
+  appearance: unset !important;
+  -moz-default-appearance: menuitemtext;
+  filter: blur(0px) !important;
+}
+
+
+.menu-iconic-left {
+  appearance:unset !important;
+  width: 16px !important;
+}
+
+menuitem:is([type="checkbox"], [type="radio"]):not([checked="true"]) {
+  padding-inline-start: 14px !important;
+}
+
+menuitem:is([type="checkbox"], [checked="true"], [type="radio"]) > .menu-iconic-left > .menu-iconic-icon {
+  display: unset !important; 
+}
+
+/*menuitem:is([type="checkbox"], [checked="true"], [type="radio"]) {
+	margin-left: -18px !important;
+}
+
+menuitem:is([type="checkbox"], [type="radio"] [checked="true"]) > .menu-iconic-left{
+  margin-left: -6px !important;
+}*/
+
+menuitem[checked="true"] > .menu-iconic-left {
+  margin-inline-end: 8px !important;
+}
+
+.menu-right {
+	appearance:unset !important;
+  list-style-image: url("resource/svg/menarrow.svg") !important;
+  mix-blend-mode: luminosity !important;
+  margin-right: 2px !important;
+}
+
+.menu-right {
+  & > image {
+    width: auto !important;
+  }
+}
+
+menuitem[checked="true"] > .menu-iconic-left {
+  list-style-image: url("resource/svg/check.svg") !important;
+  mix-blend-mode: luminosity !important;
+}
+
+menuitem:not([type="checkbox"], [checked="true"], [type="radio"]) .menu-iconic-icon {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+menuitem:is([type="checkbox"], [checked="true"], [type="radio"]) .menu-iconic-icon {
+  width: auto !important;
+  height: auto !important;
+}
+
+menuseparator {
+  appearance: unset !important;
+  padding: 0px !important;
+  border-top: 1px solid white !important;
+  border-bottom: 0px !important;
+  margin-block: 3px !important;
+  margin-inline: 2px !important;
+  mix-blend-mode: luminosity !important;
+  opacity: 0.3 !important;
+}
+
+.menu-iconic, .menuitem-iconic{
+
+appearance: unset !important;
+  margin: 4px !important;
+  min-height: 19px !important;
+  padding: 2px !important;
+  padding-left: 6px !important;
+  border-radius: var(--arrowpanel-menuitem-border-radius);
+  background-color: transparent;
+  flex-shrink: 0;
+  
+}
+
+
+.menu-iconic .menu-iconic-text, .menuitem-iconic .menu-iconic-text{
+ margin-inline-start: 10px !important;
+ padding: 0px !important;
+ //padding-box: 1px !important;
+ padding-right: 2px !important;
+}
+
+.toolbar-menupopup {
+  & :is(.menu-iconic, .menuitem-iconic) > .menu-iconic-left {
+    margin-inline-end: 0px !important;
+  }
+}
+
+.menu-iconic > .menu-iconic-left, .menuitem-iconic > .menu-iconic-left {
+  margin-inline-end: 0px !important;
+}
+
+.browserContainer > findbar {
+  border-bottom-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+}

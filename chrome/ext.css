@@ -1,0 +1,4 @@
+/* include/merge this with userchrome.css */
+#unified-extensions-button > .toolbarbutton-icon {
+  list-style-image: url("resource/png/ext.png") !important;
+}/*# sourceMappingURL=ext.css.map */
