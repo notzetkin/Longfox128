@@ -30,7 +30,9 @@ well supports 128 obvs
 
 # THANKS TO:
 ![AngelBruni](https://github.com/angelbruni) and ![Dominic Hayes](https://github.com/dominichayesferen) for muliicolor support from ![Geckium](https://github.com/angelbruni/Geckium)
+
 ![Aris](https://github.com/Aris-t2) for ![firefox customisation scripts](https://github.com/Aris-t2/CustomJSforFx)
+
 ![MrOtherGuy](https://github.com/MrOtherGuy) for ![js loader](https://github.com/MrOtherGuy/fx-autoconfig)
 
 Licenses for files forked off Firefox and Chromium can be found in the files their code resides in.
