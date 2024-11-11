@@ -164,7 +164,7 @@ toolbar {
 }
 
 #urlbar {
-	top: 5px !important;
+	top: 6px !important;
 }
 
 
@@ -176,7 +176,7 @@ toolbar {
 }
 
 #urlbar[breakout][breakout-extend] {
-  top: 5px !important;
+  top: 6px !important;
   left: 0 !important;
   width: 100% !important;
 }
@@ -201,7 +201,7 @@ toolbar {
 
 
 #nav-bar {
-	height: 50px !important;
+	height: 51px !important;
 }
 
 #urlbar-go-button, .search-go-button {
@@ -239,10 +239,12 @@ toolbar {
 	 background-position: center !important;
 	 margin-left: 0px !important;
   margin-right: 0px !important;
-  max-height:28px !important;
+  max-height:27px !important;
   min-height: 1px !important;  
 }
-
+#additional_top_toolbar2 {
+  box-shadow: inset 0px -2px 2px rgba(255,255,255,0.2) !important;
+}
 #TabsToolbar {
   background-color: rgb(255,255,255) !important;
   background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, hsl(calc(var(--you-h) + 7), calc(var(--you-s) - 36%), calc(var(--you-l) + 41%)) 50%, hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 17%), calc(var(--you-l) + 28%)) 100%) !important;
@@ -386,7 +388,7 @@ box-shadow: none !important;
   opacity: 100% !important;
 }
 
-#nav-bar #forward-button::after {
+#main-window:not([chromehidden="menubar toolbar directories extrachrome "]) #nav-bar::before {
   content: '';
   background-image: url("resource/svg/frame.svg");
   position: absolute;
@@ -398,6 +400,8 @@ box-shadow: none !important;
   z-index: 0;
 }
 
+
+
 toolbar .toolbarbutton-1 {
   appearance: none;
   margin: 0;
@@ -405,48 +409,43 @@ toolbar .toolbarbutton-1 {
   justify-content: center;
 }
 
-#back-button {
+#nav-bar #back-button {
 	padding-right: 0px !important;
-  list-style-image: url("resource/svg/back 1.svg") !important;
+  list-style-image: url("resource/svg/back.svg") !important;
   padding-bottom: 0px !important;
   /*mix-blend-mode: luminosity !important;*/
   height: 28px !important;
   min-width: 28px !important;
   max-width: 28px !important;
-  box-shadow: 0px 1px 0px hsl(var(--you-h), calc(var(--you-s) + 10%), calc(var(--you-l) + 3%))!important;;
-  background-color: accentcolor !important;
+  box-shadow: 0px 1px 0px hsl(var(--you-h), calc(var(--you-s) + 10%), calc(var(--you-l) + 3%))!important;
+  background-color: hsl(var(--you-h), calc(var(--you-s) + 1%), calc(var(--you-l) + 2%)) !important;
   border-radius: 50% !important;
   margin-top: 8px !important;
   padding-left: 0px !important; 
   margin-left: 9px !important;
   z-index: 1 !important;
 }
-#back-button:hover {
-  list-style-image: url("resource/svg/back 2.svg") !important;
+#nav-bar #back-button:hover:not([disabled="true"]), #nav-bar #forward-button:hover:not([disabled="true"]) {
   background-color: hsl(var(--you-h), calc(var(--you-s) + 22%), calc(var(--you-l) + 12%))!important;
 }
-/*#back-button:hover:active {
-  list-style-image: url("resource/png/bp.png") !important;
+#nav-bar #back-button:hover:active, #nav-bar #forward-button:hover:active {
+  background-color: hsl(var(--you-h), calc(var(--you-s) - 7%), calc(var(--you-l) - 4%)) !important;
 }
-#back-button[disabled="true"] {
-	list-style-image: url("resource/png/bd.png") !important;
-}*/
-#forward-button {
-	padding-left: 4px !important;
+#nav-bar #back-button[disabled="true"], #nav-bar #forward-button[disabled="true"] {
+	background-color: hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 9%), calc(var(--you-l) + 12%)) !important;
+}
+#nav-bar #forward-button {
+	margin-left: 6px !important;
   list-style-image: url("resource/svg/forward.svg") !important;
-  padding-bottom: 6px !important;
+  height: 17px !important;
+  min-width: 17px !important;
+  max-width: 17px !important;
+  box-shadow: 0px 1px 0px hsl(var(--you-h), calc(var(--you-s) + 10%), calc(var(--you-l) + 3%))!important;
+  background-color: hsl(var(--you-h), calc(var(--you-s) + 1%), calc(var(--you-l) + 2%)) !important;
+  border-radius: 50% !important;
+  margin-top: 13px !important;
+  z-index: 1 !important;
 }
-
-/*#forward-button:hover {
-  list-style-image: url("resource/png/fwh.png") !important;
-}
-#forward-button:hover:active {
-  list-style-image: url("resource/png/fwa.png") !important;
-}
-
-#forward-button[disabled="true"] {
-	list-style-image: url("resource/png/fwd.png") !important;
-}*/
 
 #home-button {
   list-style-image: url("resource/png/h.png") !important;
@@ -496,38 +495,52 @@ toolbar .toolbarbutton-1 {
 	position: relative !important;
 	order: 3 !important;
   list-style-image: url("resource/svg/go.svg") !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  box-shadow: 0px 1px 0px hsl(var(--you-h), calc(var(--you-s) + 10%), calc(var(--you-l) + 7%)), 0px -1px 0px hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 10%), calc(var(--you-l) - 19%)) !important;
+  background-color: hsl(var(--you-h), calc(var(--you-s) + 1%), calc(var(--you-l) + 2%)) !important;
+  border-radius: 50% !important;
+  margin-top: 7px !important;
+  margin-inline: 2px !important;
 }
 
-#go-button:hover  {
-  list-style-image: url("resource/svg/go_hover.svg") !important;
+#go-button:hover, #stop-button:hover, #reload-button:hover  {
+  background-color: hsl(var(--you-h), calc(var(--you-s) + 22%), calc(var(--you-l) + 12%))!important;
 }
-#go-button:hover:active  {
-  list-style-image: url("resource/svg/go_hover_active.svg") !important;
+#go-button:hover:active, #stop-button:hover:active, #reload-button:hover:active {
+ background-color: hsl(var(--you-h), calc(var(--you-s) - 7%), calc(var(--you-l) - 4%)) !important;
 }
 
 #stop-reload-button {
 	order: 4 !important;
-  mix-blend-mode: luminosity !important;
 }
 
 #reload-button  {
   list-style-image: url("resource/svg/refresh.svg") !important;
-}
-#reload-button:hover{
-  list-style-image: url("resource/svg/refresh_hover.svg") !important;
-}
-#reload-button:hover:active  {
-  list-style-image: url("resource/svg/refresh_hover_active.svg") !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  box-shadow: 0px 1px 0px hsl(var(--you-h), calc(var(--you-s) + 10%), calc(var(--you-l) + 7%)), 0px -1px 0px hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 10%), calc(var(--you-l) - 19%)) !important;
+  background-color: hsl(var(--you-h), calc(var(--you-s) + 1%), calc(var(--you-l) + 2%)) !important;
+  border-radius: 50% !important;
+  margin-top: 7px !important;
+  margin-inline: 2px !important;
 }
 
 #stop-button  {
   list-style-image: url("resource/svg/stop.svg") !important;
-}
-#stop-button:hover  {
-  list-style-image: url("resource/svg/stop_hover.svg") !important;
-}
-#stop-button:hover:active  {
-  list-style-image: url("resource/svg/stop_hover_active.svg") !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  box-shadow: 0px 1px 0px hsl(var(--you-h), calc(var(--you-s) + 10%), calc(var(--you-l) + 7%)), 0px -1px 0px hsl(calc(var(--you-h) - 1), calc(var(--you-s) - 10%), calc(var(--you-l) - 19%)) !important;
+  background-color: hsl(var(--you-h), calc(var(--you-s) + 1%), calc(var(--you-l) + 2%)) !important;
+  border-radius: 50% !important;
+  margin-top: 7px !important;
+  margin-inline: 2px !important;
 }
 
 #sidebar-button {
@@ -557,7 +570,6 @@ margin-top: -1px !important;
   margin-top: 0px !important;
   height: 20px !important;
   width: 20px !important;
-  margin-bottom: 3px !important;
 }
 
 #nav-bar .toolbarbutton-1, toolbarbutton.bookmark-item:not(.subviewbutton) {
@@ -584,6 +596,7 @@ margin-top: -1px !important;
   padding: 0px !important;
   width: 38px !important;
   height: 38px !important;
+  mix-blend-mode: luminosity !important;
 }
 
 #PlacesToolbarItems .bookmark-item > .toolbarbutton-icon  {
@@ -945,16 +958,16 @@ border-top-left-radius: 10px !important;
 
 .urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box {
   list-style-image: url("resource/ico/sok.ico") !important;
-	filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+	mix-blend-mode: luminosity !important;
 
   &[active] {
     list-style-image: url("resource/ico/sok.ico") !important;
-	filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+	mix-blend-mode: luminosity !important;
   }
 
   &[hasException] {
       list-style-image: url("resource/ico/sa.ico");
-  filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+  mix-blend-mode: luminosity !important;
   }
 }
 
@@ -1010,7 +1023,7 @@ border-top-left-radius: 10px !important;
 #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon,
 #identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon {
   list-style-image: url("resource/ico/lock.ico") !important;
-  filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+  mix-blend-mode: luminosity !important;
 }
 
 #urlbar[breakout][breakout-extend] .identity-box-button {
@@ -1019,13 +1032,13 @@ border-top-left-radius: 10px !important;
 
 #star-button {
 	list-style-image: url("resource/ico/favorites.ico") !important;
-	filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+	mix-blend-mode: luminosity !important;
 }
 
 #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon:hover,
 #identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon:hover,
 #star-button:hover, #star-button[starred] {
-	filter: unset !important; 
+	mix-blend-mode: normal !important; 
 }
 
 #statuspanel-label, .statusBarDone {
@@ -1071,7 +1084,7 @@ border-top-left-radius: 10px !important;
 
 #urlbar:not(.searchButton) > .urlbar-input-container > #identity-box[pageproxystate="invalid"] #identity-icon {
   list-style-image: url("resource/ico/search.ico") !important;
-  filter: sepia(100%) hue-rotate(190deg) saturate(500%) !important;
+  mix-blend-mode: luminosity !important;
 }
 
 toolbarseparator {
@@ -1156,91 +1169,6 @@ findbar {
     height: 26px;
     margin-top: -2px;
     width: 34px !important;
-}
-
-.titlebar-button {
-width: 17px !important;
-appearance: unset !important;
-padding: 0px !important;
-}
-
-.titlebar-button {
-  & > .toolbarbutton-icon {
-    width: 17px !important;
-    height: 17px !important;
-  }
-}
-
-.titlebar-close .toolbarbutton-icon{
-		appearance: unset !important;
-   list-style-image: url("resource/svg/cl.svg") !important;
-}
-.titlebar-close:hover .toolbarbutton-icon{
-   list-style-image: url("resource/svg/cl_h.svg") !important;
-}
-.titlebar-close:hover:active .toolbarbutton-icon{
-   list-style-image: url("resource/svg/cl_p.svg") !important;
-}
-.titlebar-close[disabled="true"] .toolbarbutton-icon{
-   list-style-image: url("resource/svg/cl_d.svg") !important;
-}
-
-.titlebar-min .toolbarbutton-icon {
-	width: 17px !important;
-	appearance: unset !important;
-   list-style-image: url("resource/svg/min.svg") !important;
-}
-.titlebar-min:hover .toolbarbutton-icon{
-   list-style-image: url("resource/svg/min_h.svg") !important;
-}
-.titlebar-min:hover:active .toolbarbutton-icon{
-   list-style-image: url("resource/svg/min_p.svg") !important;
-}
-.titlebar-min[disabled="true"] .toolbarbutton-icon{
-   list-style-image: url("resource/svg/min_d.svg") !important;
-}
-
-.titlebar-max .toolbarbutton-icon{
-	width: 17px !important;
-		appearance: unset !important;
-   list-style-image: url("resource/svg/max.svg") !important;
-}
-.titlebar-max:hover .toolbarbutton-icon{
-   list-style-image: url("resource/svg/max_h.svg") !important;
-}
-.titlebar-max:hover:active .toolbarbutton-icon{
-   list-style-image: url("resource/svg/max_p.svg") !important;
-}
-.titlebar-max[disabled="true"] .toolbarbutton-icon{
-   list-style-image: url("resource/svg/max_d.svg") !important;
-}
-
-.titlebar-restore .toolbarbutton-icon{
-	width: 17px !important;
-		appearance: unset !important;
-   list-style-image: url("resource/svg/rest.svg") !important;
-}
-.titlebar-restore:hover .toolbarbutton-icon{
-   list-style-image: url("resource/svg/rest_h.svg") !important;
-}
-.titlebar-restore:hover:active .toolbarbutton-icon{
-   list-style-image: url("resource/svg/rest_p.svg") !important;
-}
-.titlebar-restore[disabled="true"] .toolbarbutton-icon{
-   list-style-image: url("resource/svg/rest_d.svg") !important;
-}
-.titlebar-buttonbox-container {
-	margin-right:10px !important;
-	height: 16px !important;
-	margin-top: -2px !important;
-  right: 0px !important;
-  position: absolute !important;
-}
-
-@media not (prefers-contrast) {
-  .titlebar-button:hover {
-    background-color: transparent !important;
-  }
 }
 
   menupopup {
