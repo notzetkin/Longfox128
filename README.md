@@ -1,4 +1,4 @@
-#version for 128 is on hiatus cus ff nightly is better for our purposes. up to date repo - https://github.com/notzetkin/Longfox-Nightly
+# version for 128 is on hiatus cus ff nightly is better for our purposes. up to date repo - https://github.com/notzetkin/Longfox-Nightly
 
 
 # Longfox128: The Search For More Plex
